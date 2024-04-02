@@ -23,23 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 # Dependency directories
-node_modules/
+/node_modules
 
 # Production build directory
-dist/
+/dist
 
-# Development server logs
-log/
-
-# Environment variables file (if used)
-.env
-
-# IDE/Editor specific files
-.vscode/
-.idea/
-
-# macOS directory attributes
-.DS_Store
-
-# Cache files
-.cache/
