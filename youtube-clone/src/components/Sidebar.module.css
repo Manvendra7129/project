@@ -1,5 +1,6 @@
 .Sidebar {
   flex: 0.2;
+  position: static;
 }
 .Sidebar > hr {
   height: 0.04em;
