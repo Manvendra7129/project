@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,7 +7,21 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import ytLogo from "../assets/yt-logo.png";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { YOUTUBE_SEARCH_API } from "../utils/constant";
 function Header() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    getSearchSuggestions();
+  }, [searchQuery]);
+
+  const getSearchSuggestions = async () => {
+    const url = `http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=manu`;
+    const data = await fetch(url);
+    const json = await data.json();
+    console.log(json);
+  };
+
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -27,6 +40,8 @@ function Header() {
         <input
           placeholder="      search"
           type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="flex-1 border-none  outline-none bg-transparent "
         />
         <SearchIcon className="w-4  border-l border-white text-gray-500" />

@@ -6,7 +6,7 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   if (!isMenuOpen) return null;
   return (
-    <section className="col-span-2 pl-5  ">
+    <section className="col-span-2 pl-5 ">
       <h1 className="font-bold">Subscriptions</h1>
       <ul>
         <li>
